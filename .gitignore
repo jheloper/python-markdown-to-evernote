@@ -1,0 +1,10 @@
+# IDE
+.idea
+*.iml
+out
+gen
+
+.cache
+myvenv
+memo.md
+*api_token.py
