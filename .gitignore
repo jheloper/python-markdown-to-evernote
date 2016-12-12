@@ -8,3 +8,4 @@ gen
 myvenv
 memo.md
 *api_token.py
+__pycache__

@@ -12,7 +12,12 @@
 
 ## Dependencies
 
-```pip install -r requirements.txt```
+```pip install -r requirements.txt``` 
+
+Please install the Evernote package is
+```pip install git+https://github.com/evernote/evernote-sdk-python3.git```
+
+Because a problem with the existing package in PyPi.
 
 ## You Need
 
