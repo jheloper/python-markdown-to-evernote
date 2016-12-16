@@ -8,6 +8,7 @@
 
 - OS : Ubuntu.
 - Python : 3.5.x.
+- Django : 1.9.x.
 - Test : pytest.
 
 ## Dependencies
@@ -23,4 +24,11 @@ Because a problem with the existing package in PyPi.
 
 - Evernote API Token.
 - Evernote Sandbox Account.
-- Please read the [Evernote Docs](https://dev.evernote.com/doc/).
+- Please read the [Evernote DevDocs](https://dev.evernote.com/doc/).
+
+## Link
+
+- [Markdown by John Gruber](http://daringfireball.net/projects/markdown/)
+- [Python Markdown](https://pythonhosted.org/Markdown/)
+- [Evernote DevDocs](https://dev.evernote.com/doc/)
+- [Evernote SDK - Python3](https://github.com/evernote/evernote-sdk-python3)

@@ -4,16 +4,29 @@ from evernote.edam.type.ttypes import Note
 
 
 class EvernoteClientWrapper:
+
     def __init__(self, **kwargs):
+        """
+        :param kwargs:
+        """
         self.client = EvernoteClient(token=kwargs['token'], sandbox=kwargs['sandbox'])
 
     def get_user(self):
+        """
+        :rtype: evernote.edam.type.ttypes.User
+        """
         return self.client.get_user_store().getUser()
 
     def get_notebooks(self):
+        """
+        :rtype: list[evernote.edam.type.ttypes.Notebook]
+        """
         return self.client.get_note_store().listNotebooks()
 
     def get_default_notebook(self):
+        """
+        :rtype: evernote.edam.type.ttypes.Notebook
+        """
         return self.client.get_note_store().getDefaultNotebook()
 
     '''
@@ -24,6 +37,10 @@ class EvernoteClientWrapper:
     '''
 
     def get_notes_by_parameter(self, **kwargs):
+        """
+        :param kwargs:
+        :rtype: list[evernote.edam.type.ttypes.Note]
+        """
         note_filter = NoteFilter(words=kwargs.get('words'),
                                  notebookGuid=kwargs.get('notebook_guid'), tagGuids=kwargs.get('tag_guids'))
         note_metadata_list = self.client.get_note_store().\
@@ -32,7 +49,12 @@ class EvernoteClientWrapper:
         return note_metadata_list.notes
 
     def create_note(self, note_title, note_content, parent_notebook):
-
+        """
+        :param string note_title:
+        :param string note_content:
+        :param Notebook parent_notebook:
+        :rtype: evernote.edam.type.ttypes.Note
+        """
         n_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
         n_body += "<!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\">"
         n_body += "<en-note>%s</en-note>" % note_content

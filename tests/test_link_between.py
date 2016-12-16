@@ -11,8 +11,10 @@ def test_convert_markdown_and_create_note():
         conv_str = md.convert(f.read())
 
     client = EvernoteClientWrapper(token=dev_token, sandbox=True)
-    note = client.create_note(note_title='md convert test', note_content=conv_str, parent_notebook=client.get_default_notebook())
-    assert 'md' in note.title
+    note_title = 'md convert test'
+    note = client.create_note(note_title=note_title, note_content=conv_str,
+                              parent_notebook=client.get_default_notebook())
+    assert note_title == note.title
 
 
 if __name__ == '__main__':

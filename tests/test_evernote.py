@@ -22,6 +22,7 @@ def test_get_notebook_by_notebook_name(client_wrapper):
     assert client_wrapper.get_notebook_by_notebook_name('')
 '''
 
+
 def test_get_notes(client_wrapper):
     # TODO note filter -> note meta data -> get note guid -> finally get note...?
     notes = client_wrapper.get_notes_by_parameter(notebook_guid=client_wrapper.get_notebooks()[0].guid)
