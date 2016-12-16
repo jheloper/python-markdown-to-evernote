@@ -12,3 +12,4 @@ design.md
 __pycache__
 migrations
 db.sqlite3
+secret.json

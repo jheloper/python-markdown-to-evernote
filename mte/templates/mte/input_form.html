@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test input</title>
+</head>
+<body>
+    <form action="/mte/markdown/" method="post"> {% csrf_token %}
+        <fieldset>
+            <div>
+                {{ form.title.label_tag }} {{ form.title }}
+            </div>
+
+            <div>
+                {{ form.content.label_tag }} {{ form.content }}
+            </div>
+        </fieldset>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+        
+    </form>
+</body>
+</html>
