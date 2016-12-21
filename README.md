@@ -9,7 +9,7 @@
 - OS : Ubuntu.
 - Python : 3.5.x.
 - Django : 1.9.x.
-- Test : pytest.
+- Test : Python unittest.
 
 ## Dependencies
 

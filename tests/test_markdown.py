@@ -1,24 +1,25 @@
-import pytest
+import unittest
 import markdown
 
 
-def test_convert_markdown():
-    md = markdown.Markdown()
-    result = md.convert('#hello, world!')
-    assert 'h1' in result
+class MarkdownTest(unittest.TestCase):
 
+    def setUp(self):
+        self.md = markdown.Markdown()
 
-def test_read_markdown_file():
-    md = markdown.Markdown()
-    with open('test.md', mode='r') as f:
-        result = md.convert(f.read())
-    assert 'h1' in result
+    def test_convert_markdown(self):
+        result = self.md.convert('#hello, world!')
+        self.assertIn('h1', result)
 
+    def test_read_markdown_file(self):
+        with open('test.md', mode='r') as f:
+            result = self.md.convert(f.read())
+        self.assertIn('h1', result)
 
-def test_convert_markdown2():
-    md = markdown.Markdown()
-    result = md.convert('#hello, world!\n##hi!')
-    assert 'h2' in result
+    def test_convert_markdown_with_newline(self):
+        result = self.md.convert('#hello, world!\n##hi!')
+        self.assertIn('h2', result)
+
 
 if __name__ == '__main__':
-    pytest.main()
+    unittest.main()

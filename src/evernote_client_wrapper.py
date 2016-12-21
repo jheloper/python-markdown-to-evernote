@@ -29,14 +29,7 @@ class EvernoteClientWrapper:
         """
         return self.client.get_note_store().getDefaultNotebook()
 
-    '''
-    def get_notebook_by_notebook_name(self, notebook_name):
-        for notebook in self.get_notebooks():
-            if notebook_name in notebook.name:
-                return notebook
-    '''
-
-    def get_notes_by_parameter(self, **kwargs):
+    def get_notes_data_by_parameter(self, **kwargs):
         """
         :param kwargs:
         :rtype: list[evernote.edam.type.ttypes.Note]
@@ -66,3 +59,22 @@ class EvernoteClientWrapper:
             note.notebookGuid = parent_notebook.guid
 
         return self.client.get_note_store().createNote(note)
+
+    def get_tags(self):
+        return self.client.get_note_store().listTags()
+
+    def get_tag_by_tag_name(self, tag_name):
+        """
+        :param tag_name:
+        :rtype: evernote.edam.type.ttypes.Tag
+        """
+        tag_list = self.get_tags()
+        tag = [tag for tag in tag_list if tag.name == tag_name]
+        if len(tag) == 1:
+            return tag[0]
+        else:
+            raise Exception('Duplicate name tags exist.')
+
+    def get_note_by_guid(self, guid):
+        return self.client.get_note_store().getNote(guid, True, True, True, True)
+
