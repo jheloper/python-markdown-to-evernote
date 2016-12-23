@@ -1,6 +1,7 @@
 from evernote.api.client import *
 from evernote.edam.notestore.ttypes import NoteFilter, NotesMetadataResultSpec
 from evernote.edam.type.ttypes import Note
+import re
 
 
 class EvernoteClientWrapper:
@@ -77,4 +78,13 @@ class EvernoteClientWrapper:
 
     def get_note_by_guid(self, guid):
         return self.client.get_note_store().getNote(guid, True, True, True, True)
+
+    def convert_note_content_to_text(self, note_content):
+        newline_p = re.compile(r'</div>')
+        tag_p = re.compile(r'<.*>')
+        return tag_p.sub('', newline_p.sub('\n', note_content))
+
+
+
+
 

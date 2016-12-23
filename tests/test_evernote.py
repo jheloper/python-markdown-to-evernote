@@ -49,6 +49,15 @@ class EvernoteAPITest(unittest.TestCase):
         note = self.ecw.get_note_by_guid(notes_guid[0])
         self.assertIsInstance(note, Note)
 
+    def test_convert_note_content_to_text(self):
+        tag_name = 'mte'
+        tag = self.ecw.get_tag_by_tag_name(tag_name)
+        notes_data = self.ecw.get_notes_data_by_parameter(tag_guids=[tag.guid])
+        notes_guid = [data.guid for data in notes_data]
+        note = self.ecw.get_note_by_guid(notes_guid[0])
+        converted_content = self.ecw.convert_note_content_to_text(note.content)
+        self.assertNotIn('<div>', converted_content)
+
 
 if __name__ == '__main__':
     unittest.main()

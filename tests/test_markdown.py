@@ -8,7 +8,7 @@ class MarkdownTest(unittest.TestCase):
         self.md = markdown.Markdown()
 
     def test_convert_markdown(self):
-        result = self.md.convert('#hello, world!')
+        result = self.md.convert('# hello, world!')
         self.assertIn('h1', result)
 
     def test_read_markdown_file(self):
@@ -17,7 +17,7 @@ class MarkdownTest(unittest.TestCase):
         self.assertIn('h1', result)
 
     def test_convert_markdown_with_newline(self):
-        result = self.md.convert('#hello, world!\n##hi!')
+        result = self.md.convert('# hello, world!\n## hi!')
         self.assertIn('h2', result)
 
 
