@@ -8,17 +8,11 @@
 
 - OS : Ubuntu.
 - Python : 3.5.x.
-- Django : 1.9.x.
-- Test : pytest.
+- Test : Python3 unittest.
 
 ## Dependencies
 
 ```pip install -r requirements.txt``` 
-
-Please install the Evernote package is
-```pip install git+https://github.com/evernote/evernote-sdk-python3.git```
-
-Because a problem with the existing package in PyPi.
 
 ## You Need
 
